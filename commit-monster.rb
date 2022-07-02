@@ -7,7 +7,7 @@ def update_readme
   template = File.open("template.md.erb").read
   filename = "README.md"
 
-  updated_at = DateTime.now.strftime("%B %d, %Y %H:%M:%S %:z")
+  @updated_at = DateTime.now.strftime("%B %d, %Y %H:%M:%S %:z")
   renderer = ERB.new(template)
   File.open(filename, 'w').write(renderer.result)
 end

@@ -9,10 +9,14 @@ def update_readme
 
   @updated_at = DateTime.now.strftime("%B %d, %Y %H:%M:%S %:z")
   renderer = ERB.new(template)
-  File.open(filename, 'w').write(renderer.result)
+
+  results = renderer.result
+  puts "Updating README:\n#{results}"
+  File.open(filename, 'w').write(results)
 end
 
 def push_changes
+  puts "Getting ready to push changes"
   message = pick_a_message
   `git commit -am "#{message}"`
   `git push`

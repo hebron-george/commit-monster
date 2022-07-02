@@ -1,9 +1,16 @@
 name: New Commit
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Update-Readme:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+        git --version
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git status
+        git tag
+        git describe
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: ruby "${{ github.workspace }}/commit-monster.rb"

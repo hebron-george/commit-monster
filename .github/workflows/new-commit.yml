@@ -4,7 +4,8 @@ jobs:
   Update-Readme:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: git
+        run: |
         git --version
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"

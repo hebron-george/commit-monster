@@ -6,12 +6,12 @@ jobs:
     steps:
       - name: git
         run: |
-        git --version
-        git config user.name "GitHub Actions Bot"
-        git config user.email "<>"
-        git status
-        git tag
-        git describe
+          git --version
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git status
+          git tag
+          git describe
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: ruby "${{ github.workspace }}/commit-monster.rb"

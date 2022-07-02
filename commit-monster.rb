@@ -19,7 +19,8 @@ def push_changes
   puts "Getting ready to push changes"
   message = pick_a_message
   `git commit -am "#{message}"`
-  `git push`
+  push_results = `git push`
+  puts "Push results:\n#{push_results}"
 end
 
 def pick_a_message

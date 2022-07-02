@@ -7,12 +7,14 @@ def update_readme
   template = File.open("template.md.erb").read
   filename = "README.md"
 
+  puts "Before updating readme:\n#{File.open(filename).read}"
   @updated_at = DateTime.now.strftime("%B %d, %Y %H:%M:%S %:z")
   renderer = ERB.new(template)
 
   results = renderer.result
   puts "Updating README:\n#{results}"
   File.open(filename, 'w').write(results)
+  puts "After updating readme:\n#{File.open(filename).read}"
 end
 
 def push_changes
